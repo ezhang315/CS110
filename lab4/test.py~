@@ -1,0 +1,57 @@
+import math
+
+def pi():
+	result = 0
+	phase = 0
+	for i in range(1, 10000000, 2):
+		if phase % 2 == 0:
+			result = result + (4 / i)
+		else:
+			result = result - (4/ i)
+		phase += 1
+	return result
+
+#declaring approximation of pi as a global variable
+PI = pi()
+
+def factorial(num):
+	result = 1
+	for i in range(1,num + 1):
+		result *= i
+	return result
+
+def cos(radians):
+	result = 0
+	phase = 0
+	for i in range(0, 172, 2):
+		if phase % 2 == 0:
+			result = result + ((radians ** i) / factorial(i))
+		else:
+			result = result - ((radians ** i) / factorial(i))
+		phase = phase + 1
+	return result
+
+def sin(radians):
+	result = 0
+	phase = 0
+	for i in range(1, 173, 2):
+		if phase % 2 == 0:
+			result = result + ((radians ** i) / factorial(i))
+		else:
+			result = result - ((radians ** i) / factorial(i))
+		phase = phase + 1
+	return result
+
+def makeRadians(degrees):
+        radians = (degrees * PI) / 180
+        return radians
+
+def compareValues(upper_bound):
+	for i in range(upper_bound):
+		print(sin(makeRadians(i)))
+		print(math.sin(math.radians(i)))
+
+def main():
+	compareValues(10)
+
+main()

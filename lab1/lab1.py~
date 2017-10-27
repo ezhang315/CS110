@@ -1,0 +1,38 @@
+#function that performs / operation
+def costPerWeek (num_weeks, num_classes, tuition):
+	return  (tuition / num_classes) / (num_weeks)
+
+#function that performs / operation
+def costPerClass (weekly_classes, weekly_cost):
+	return  (weekly_cost / weekly_classes)
+
+def main():
+	weeksStr = input("Please enter the number of weeks this semester:  ")
+	#assigns a user input to variable weeksStr
+	classesStr = input("Enter the number of classes you are taking:  ")
+	#assigns a user input to variable classesStr
+	tuitionStr = input("Please enter your tuition:  ")
+	#assigns a user input to variable tuitionStr
+	classes_per_weekStr = input("Enter the number of times you have class each week:  ")
+	#assigns a user input to variable classes_per_weekStr
+	weeks = int(weeksStr)
+	#assigns variable weeks the value of integer form of weeksStr
+	classes = int(classesStr)
+	#assigns varibale classes the value of inter form of classesStr
+	tuition = int(tuitionStr)
+	#assigns variable tuition the value of integer form of tuitionStr
+	classes_per_week = int(classes_per_weekStr)
+	#assigns variable classes_per_week the value of integer form of classes_per_weekStr
+	#for debug only
+	print("Weeks:", weeks, "Classes:", classes, "Tuition:",tuition)
+	#prints the values of weeks classes and tuition with preceeding messages
+	cost_per_week = costPerWeek(weeks, classes, tuition)
+	#calls costPerWeek with the values the user inputted earlier for weeks classes and tuition and assigns the result to variable cost_per_week
+	print("Cost per week:", cost_per_week)
+	#prints cost per week with a preceeding message
+	cost_per_class = costPerClass(classes_per_week, cost_per_week)
+	#calls costPerClass with classes_per_week and cost_per_week as arguments and assigns what gets returned to cost_per_class
+	print("Cost per class:", cost_per_class)
+	#prints cost per class with a preceeding message
+
+main()
